@@ -88,13 +88,6 @@ if not exist "%~dp0..\BepInEx" (
 )
 cls
 
-:: Create Text File With Mods
-:modlist
-if exist "%~dp0\modlist.txt" del /s /q "%~dp0\modlist.txt"
-echo Creating mods text file...
-echo - PEAKUnlimited>> modlist.txt
-cls
-
 :: Clear 'temp' Folder
 echo Cleaning up...
 del /s /q "%~dp0\bin\temp\*"
