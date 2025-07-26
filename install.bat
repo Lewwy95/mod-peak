@@ -59,7 +59,7 @@ cls
 
 :: Deploy Latest Revision
 echo Deploying latest revision...
-xcopy /s /y "%~dp0\bin\temp\mod-peak-main" "%~dp0"
+xcopy /s /y "%~dp0\bin\temp\mod-peak-main\*" "%~dp0"
 cls
 
 :: Apply New Version File
@@ -81,6 +81,10 @@ if not exist "%~dp0..\BepInEx" (
     :: Copy mods and dependencies over
     xcopy /s /y /i "%~dp0\bin\mods\*.dll" "%~dp0..\BepInEx\plugins"
     xcopy /s /y /i "%~dp0\bin\configs\*" "%~dp0..\BepInEx\config"
+
+    :: Delete left over files (if any)
+    del /s /q "%~dp0..\mod-peak-main.zip"
+    rmdir /s /q "%~dp0..\mod-peak-main"
 )
 cls
 
